@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="join-screen">
-        <h1 class="">Добро подаловать в чат!<br>Введите ваше имя...</h1>
+        <h1 class="">Добро пожаловать в чат!</h1>
         <br>
         <input id="username" type="text" required placeholder="Ваше Имя...">
         <button id="join-chat-btn">Join</button>
@@ -34,25 +34,35 @@
                 </li>
             </ul>
         </div>
+        <div id="online-box">Online: 0</div>
         <div class="chat-box"></div>
-        <div class="chat_input-box">
-            <button id="attachments-btn" class="chat-btn aligncenter">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paperclip" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                    <path d="M15 7l-6.5 6.5a1.5 1.5 0 0 0 3 3l6.5 -6.5a3 3 0 0 0 -6 -6l-6.5 6.5a4.5 4.5 0 0 0 9 9l6.5 -6.5"></path>
-                 </svg>
-            </button>
-            <textarea id="message-input" placeholder="Напишите сообщение..."></textarea>
-            <div id="smile-btn" class="chat-btn aligncenter">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mood-smile" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                    <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
-                    <path d="M9 10l.01 0"></path>
-                    <path d="M15 10l.01 0"></path>
-                    <path d="M9.5 15a3.5 3.5 0 0 0 5 0"></path>
-                 </svg>
+        <div id="typing-message"></div>
+        <div class="smiley-dropdown-content">
+            <div class="smiley" data-smiley="😀">😀</div>
+            <div class="smiley" data-smiley="😊">😊</div>
+            <div class="smiley" data-smiley="😂">😂</div>
+            <div class="smiley" data-smiley="😍">😍</div>
+        </div>
+        <div class="chat-panel">
+            <div class="input-area">
+                <button id="smiley-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mood-smile" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+                        <path d="M9 10l.01 0"></path>
+                        <path d="M15 10l.01 0"></path>
+                        <path d="M9.5 15a3.5 3.5 0 0 0 5 0"></path>
+                     </svg>
+                </button>
+                <input type="text" id="message-input" placeholder="Type a message...">
+                <button id="attachment-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paperclip" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M15 7l-6.5 6.5a1.5 1.5 0 0 0 3 3l6.5 -6.5a3 3 0 0 0 -6 -6l-6.5 6.5a4.5 4.5 0 0 0 9 9l6.5 -6.5"></path>
+                     </svg>
+                </button>
             </div>
-            <button id="send-btn" class="chat-btn aligncenter">
+            <button id="send-message-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-telegram" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                     <path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4"></path>

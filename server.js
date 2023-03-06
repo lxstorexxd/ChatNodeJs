@@ -8,17 +8,30 @@ const io = require("socket.io")(server);
 
 const port = 5000;
 
+// Online
+let UserOnline = 0;
+
+
 app.use(express.static(path.join(__dirname + "/public")));
 
 io.on("connection", function(socket) {
     socket.on("login", function(username) {
-        socket.broadcast.emit("update", username + " joined the room")
+        socket.broadcast.emit("update", username + " присоединился к чату")
+        UserOnline++;
+        io.emit('user-count', UserOnline);
     });
     socket.on("logout", function(username) {
-        socket.broadcast.emit("update", username + " left the room")
+        socket.broadcast.emit("update", username + " покинул")
     });
     socket.on("chat", function(message) {
         socket.broadcast.emit("chat", message)
+    });
+    socket.on("typing", ({ uname, message }) => {
+        socket.broadcast.emit("typing", { uname, message });
+    });
+    socket.on('disconnect', () => {
+        UserOnline--;
+        io.emit('user-count', UserOnline);
     });
 });
 
